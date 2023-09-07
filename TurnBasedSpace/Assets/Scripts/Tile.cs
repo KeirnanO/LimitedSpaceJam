@@ -11,16 +11,16 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
         print("Clicked: " + gridPos.x + " , " + gridPos.y);
-        Grid.instance.SpawnEntity(this, null);
+        GameManager.instance.ClickTile(this);
     }
 
     private void OnMouseEnter()
     {
-        Grid.instance.ShowTarget(gridPos.x, gridPos.y);
+        GameManager.instance.ShowTarget(gridPos.x, gridPos.y);
     }
 
     private void OnMouseExit()
     {
-        Grid.instance.UnshowTarget();
+        GameManager.instance.UnShowTarget();
     }
 }

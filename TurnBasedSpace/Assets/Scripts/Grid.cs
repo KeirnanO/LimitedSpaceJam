@@ -10,8 +10,6 @@ public class Grid : MonoBehaviour
     public GameObject rowImage;
     public GameObject columnImage;
 
-    public GameObject flower;
-
     public List<float> rowPositions;
     public List<float> columnPositions;
 
@@ -50,14 +48,23 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void SpawnEntity(Tile tile, GameObject entity)
+    public Entity SpawnEntity(Tile tile, Entity entity)
     {
         if (tile.tileObject != null)
-            return;
+            return null;
 
-        var go = Instantiate(flower);
-        tile.tileObject = go;
+        var go = Instantiate(entity);
+        tile.tileObject = go.gameObject;
         go.transform.position = tile.transform.position;
+        go.position = tile.gridPos;
+
+        return go;
+    }
+
+    public Entity SpawnEntity(int x, int y, Entity entity)
+    {
+        //Uses more slightly more memory
+        return SpawnEntity(gridArray[x, y], entity);
     }
 
     public void ShowTarget(int column, int row)
