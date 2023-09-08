@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
 
     public List<Entity> playersEntities = new List<Entity>();
     public Transform houseSpot;
+    public Transform epd;
     public int mana;
     public int startingMana;
+
+    public int enemiesKilled = 0;
 
     PlaceableScriptableObject selectedPlant = null;
     bool playerTurn;
@@ -37,10 +40,13 @@ public class GameManager : MonoBehaviour
             playerTurn = true;
             //Start of Player Turn
 
+            IncreaseMana(10);
+            UIManager.instance.CreateEnergyText(epd.position, 10);
+
             StartPlayerTurn();
 
             while (playerTurn)
-                yield return null;
+                yield return new WaitForSeconds(1f);
 
             int x = 0;
 
@@ -61,8 +67,6 @@ public class GameManager : MonoBehaviour
 
             //Once Player Turn has ended start the enemyTurn;
             EnemyTurn();
-
-            print("Enemy Turn");
 
             yield return null;
         }
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //This currently holds only AI Logic that should be called from another class
     public void EnemyTurn()
     {
         //Move all Enemies -- This will be where the AI is called
@@ -98,6 +103,19 @@ public class GameManager : MonoBehaviour
             MoveEntityOnGrid(enemy, enemy.position, enemy.position + Vector2Int.left);
         }
 
+        if(enemiesKilled > 30)
+        {
+
+            if(enemiesSpawned.Count == 0)
+            {
+                //YOU WIN
+                StopAllCoroutines();
+                Application.Quit();
+            }
+
+
+            return;
+        }
 
         //Spawn New Enemy
         int x = Grid.instance.columns - 1;
@@ -109,12 +127,14 @@ public class GameManager : MonoBehaviour
             enemiesSpawned.Add(newEnemy);
     }
 
+    //This is a Temp AI Function
     public void MoveEntityOnGrid(Entity entity, Vector2Int oldPos, Vector2Int newPos)
     {
         Tile[,] gridArray = Grid.instance.gridArray;
 
         if (newPos.x < 0)
         {
+            //YOU LOSE
             entity.transform.position = houseSpot.position;
             StopAllCoroutines();
             Application.Quit();
@@ -132,7 +152,6 @@ public class GameManager : MonoBehaviour
         
         if(gridArray[newPos.x, newPos.y].entity.type.Equals(EntityType.Plant))
         {
-
             entity.GetComponent<Animator>().SetBool("Eat", true);
             gridArray[newPos.x, newPos.y].entity.TakeDamage(1);
 
@@ -148,8 +167,14 @@ public class GameManager : MonoBehaviour
 
     public void ClickTile(Tile tile)
     {
-        if (selectedPlant == null)
+        if (!playerTurn)
             return;
+
+        if (selectedPlant == null)
+        {
+            TrySwap(tile);
+            return;
+        }
 
         Entity newEntity = Grid.instance.SpawnEntity(tile, selectedPlant.EntityPrefab);
 
@@ -176,6 +201,9 @@ public class GameManager : MonoBehaviour
 
     public void SelectPlant(PlaceableScriptableObject plant)
     {
+        if (!playerTurn)
+            return;
+
         if (mana < plant.cost)
         {
             selectedPlant = null;
@@ -195,12 +223,20 @@ public class GameManager : MonoBehaviour
     public void DestroyEntity(Entity entity)
     {
         if (enemiesSpawned.Contains(entity))
+        {
+            enemiesKilled++;
             enemiesSpawned.Remove(entity);
+        }
 
         if (playersEntities.Contains(entity))
             playersEntities.Remove(entity);
 
         Grid.instance.gridArray[entity.position.x, entity.position.y].entity = null;
         Destroy(entity.gameObject);
+    }
+
+    public void TrySwap(Tile tile)
+    {
+        GridMerge.TrySwapTile(tile.gridPos.x, tile.gridPos.y);
     }
 }

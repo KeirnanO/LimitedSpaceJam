@@ -529,13 +529,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd20a406330c5141b64ab35fa1e0072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  objectID: {fileID: 11400000, guid: 13cb80570d20ace43b1c035b7b58a3f7, type: 2}
+  health: 1
   position: {x: 0, y: 0}
   type: 1
   power: 10
   turnDelay: 3
   turnText: {fileID: 8810518813626755918}
-  haste: 1
+  haste: 0
 --- !u!95 &753120809159330031
 Animator:
   serializedVersion: 5

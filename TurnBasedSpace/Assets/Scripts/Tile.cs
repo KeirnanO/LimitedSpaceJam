@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     public Entity entity;
     public Vector2Int gridPos;
 
+    public bool rotted;
+
     private void OnMouseDown()
     {
         print("Clicked: " + gridPos.x + " , " + gridPos.y);

@@ -13,6 +13,9 @@ public enum EntityType
 
 public class Entity : MonoBehaviour
 {
+    //Temp way to give a like attribute between the same entity;
+    public PlaceableScriptableObject objectID;
+
     //fix
     public float health;
 
