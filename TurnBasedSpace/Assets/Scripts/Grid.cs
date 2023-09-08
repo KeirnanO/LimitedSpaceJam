@@ -48,23 +48,23 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public Entity SpawnEntity(Tile tile, Entity entity)
+    public Entity SpawnEntity(Tile tile, Entity entityPrefab)
     {
-        if (tile.tileObject != null)
+        if (tile.entity != null)
             return null;
 
-        var go = Instantiate(entity);
-        tile.tileObject = go.gameObject;
-        go.transform.position = tile.transform.position;
-        go.position = tile.gridPos;
+        var newEntity = Instantiate(entityPrefab);
+        tile.entity = newEntity;
+        newEntity.transform.position = tile.transform.position;
+        newEntity.position = tile.gridPos;
 
-        return go;
+        return newEntity;
     }
 
-    public Entity SpawnEntity(int x, int y, Entity entity)
+    public Entity SpawnEntity(int x, int y, Entity entityPrefab)
     {
         //Uses more slightly more memory
-        return SpawnEntity(gridArray[x, y], entity);
+        return SpawnEntity(gridArray[x, y], entityPrefab);
     }
 
     public void ShowTarget(int column, int row)

@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     public List<Entity> enemiesSpawned = new List<Entity>();
 
     public List<Entity> playersEntities = new List<Entity>();
+    public Transform houseSpot;
     public int mana;
-
+    public int startingMana;
 
     PlaceableScriptableObject selectedPlant = null;
     bool playerTurn;
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameLoop()
     {
-        IncreaseMana(50);
+        IncreaseMana(startingMana);
 
         while (true)
         {
@@ -41,16 +42,22 @@ public class GameManager : MonoBehaviour
             while (playerTurn)
                 yield return null;
 
+            int x = 0;
+
             foreach (var entity in playersEntities)
             {
+                
                 if (entity.GetType() == typeof(RangedUnit))
                 {
+                    x++;
+
                     RangedUnit unit = entity as RangedUnit;
                     unit.StartFire();
                 }
             }
 
-            yield return new WaitForSeconds(3f);
+            if(x > 0)
+                yield return new WaitForSeconds(3f);
 
             //Once Player Turn has ended start the enemyTurn;
             EnemyTurn();
@@ -106,15 +113,36 @@ public class GameManager : MonoBehaviour
     {
         Tile[,] gridArray = Grid.instance.gridArray;
 
-        if (newPos.x < 0 || newPos.y < 0)
-            return;
-
-        if (gridArray[newPos.x, newPos.y].tileObject == null)
+        if (newPos.x < 0)
         {
-            gridArray[newPos.x, newPos.y].tileObject = entity.gameObject;
-            gridArray[oldPos.x, oldPos.y].tileObject = null;
+            entity.transform.position = houseSpot.position;
+            StopAllCoroutines();
+            Application.Quit();
+            return;
+        }
+
+        if (gridArray[newPos.x, newPos.y].entity == null)
+        {
+            entity.GetComponent<Animator>().SetBool("Eat", false);
+            gridArray[newPos.x, newPos.y].entity = entity;
+            gridArray[oldPos.x, oldPos.y].entity = null;
             entity.position = newPos;
             entity.transform.position = gridArray[newPos.x, newPos.y].transform.position;
+        }
+        
+        if(gridArray[newPos.x, newPos.y].entity.type.Equals(EntityType.Plant))
+        {
+
+            entity.GetComponent<Animator>().SetBool("Eat", true);
+            gridArray[newPos.x, newPos.y].entity.TakeDamage(1);
+
+            if(gridArray[newPos.x, newPos.y].entity.health <= 0)
+            {
+                entity.GetComponent<Animator>().SetBool("Eat", false);
+                DestroyEntity(gridArray[newPos.x, newPos.y].entity);
+
+                gridArray[newPos.x, newPos.y].entity = null;
+            }
         }
     }
 
@@ -163,4 +191,16 @@ public class GameManager : MonoBehaviour
         selectedPlant = plant;
     }
     
+
+    public void DestroyEntity(Entity entity)
+    {
+        if (enemiesSpawned.Contains(entity))
+            enemiesSpawned.Remove(entity);
+
+        if (playersEntities.Contains(entity))
+            playersEntities.Remove(entity);
+
+        Grid.instance.gridArray[entity.position.x, entity.position.y].entity = null;
+        Destroy(entity.gameObject);
+    }
 }

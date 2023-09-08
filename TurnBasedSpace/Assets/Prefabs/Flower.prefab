@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c1d33777b91dc4847b98991dea7265b4, type: 3}
+  m_Sprite: {fileID: 1529190796, guid: 50c1e7d29a27bdd4d9b7fa62d23ccde1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8345255298767701996}
   - component: {fileID: 6805901238273151099}
+  - component: {fileID: 753120809159330031}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -528,9 +529,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd20a406330c5141b64ab35fa1e0072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   position: {x: 0, y: 0}
+  type: 1
   power: 10
-  turnDelay: 2
+  turnDelay: 3
   turnText: {fileID: 8810518813626755918}
   haste: 1
+--- !u!95 &753120809159330031
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345255298767701986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6273fa57f5ba98442bd83972c0daca78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

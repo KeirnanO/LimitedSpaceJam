@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   position: {x: 0, y: 0}
+  type: 1
   damage: 1
   bullet: {fileID: 1253004934987497127, guid: dc47171bc60933e4982270c6425249a8, type: 3}
   bulletSpawnPoint: {fileID: 1274402177}

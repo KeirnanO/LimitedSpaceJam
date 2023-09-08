@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
             GetComponent<Animator>().SetBool("Hit", true);
             GetComponent<BoxCollider2D>().enabled = false;
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(1f, -1f);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0.5f, 1.5f), Random.Range(-0.2f, 0.2f));
 
             if(enemy.health <= 0)
                 GameManager.instance.enemiesSpawned.Remove(collision.GetComponent<Entity>());

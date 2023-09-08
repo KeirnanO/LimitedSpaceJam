@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
-    public GameObject tileObject;
+    public Entity entity;
     public Vector2Int gridPos;
 
     private void OnMouseDown()
