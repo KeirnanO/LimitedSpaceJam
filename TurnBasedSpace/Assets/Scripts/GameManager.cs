@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(GameLoop());
     }
-
     IEnumerator GameLoop()
     {
         IncreaseMana(startingMana);
