@@ -249,9 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807b8e995e0054e47851e24982c8c4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectID: {fileID: 0}
   health: 5
+  UnitName: Zombie
   position: {x: 0, y: 0}
   type: 2
+  dirSpawned: 4
 --- !u!61 &7295989390500747670
 BoxCollider2D:
   m_ObjectHideFlags: 0

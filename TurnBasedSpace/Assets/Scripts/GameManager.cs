@@ -71,6 +71,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (Grid.instance.unitPreview == true)
+            {
+                Grid.instance.RotateTarget();
+            }
+        }
+
+    }
 
     public void IncreaseMana(int amount)
     {
@@ -99,7 +110,8 @@ public class GameManager : MonoBehaviour
         //Move all Enemies -- This will be where the AI is called
         foreach (var enemy in enemiesSpawned)
         {
-            MoveEntityOnGrid(enemy, enemy.position, enemy.position + Vector2Int.left);
+            // MoveEntityOnGrid(enemy, enemy.position, enemy.position + Vector2Int.left);
+            MoveEnemy(enemy, enemy.position, enemy.position);
         }
 
         if(enemiesKilled > 30)
@@ -116,14 +128,112 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        //SpawnEnemy();
+
+       // FourDirSpawn(Random.Range(0, 4));
+        FourDirSpawn(Random.Range(0, 4));
+    }
+
+    public void SpawnEnemy()
+    {
         //Spawn New Enemy
         int x = Grid.instance.columns - 1;
         int y = Random.Range(0, Grid.instance.rows);
-        
+
         Entity newEnemy = Grid.instance.SpawnEntity(x, y, EnemyPrefab);
 
         if (newEnemy != null)
             enemiesSpawned.Add(newEnemy);
+    }
+
+    public void FourDirSpawn(int random)
+    {
+        Entity newEnemy;
+        
+        if (random == 0)
+        {
+            newEnemy = Grid.instance.SpawnEntity(Random.Range(6, 9), 15, EnemyPrefab);
+            newEnemy.SetDir(DirSpawned.NORTH);
+            if (newEnemy != null)
+                enemiesSpawned.Add(newEnemy);
+        }
+
+        if (random == 1)
+        {
+            newEnemy = Grid.instance.SpawnEntity(Random.Range(6, 9), 0, EnemyPrefab);
+            newEnemy.SetDir(DirSpawned.SOUTH);
+            if (newEnemy != null)
+                enemiesSpawned.Add(newEnemy);
+        }
+
+        if (random == 2)
+        {
+            newEnemy = Grid.instance.SpawnEntity(0, Random.Range(6, 9), EnemyPrefab);
+            newEnemy.SetDir(DirSpawned.WEST);
+            if (newEnemy != null)
+                enemiesSpawned.Add(newEnemy);
+        }
+
+        if (random == 3)
+        {
+            newEnemy = Grid.instance.SpawnEntity(15, Random.Range(6, 9), EnemyPrefab);
+            newEnemy.SetDir(DirSpawned.EAST);
+            if (newEnemy != null)
+                enemiesSpawned.Add(newEnemy);
+        }
+
+        
+    }
+
+    public void MoveEnemy(Entity entity, Vector2Int oldPos, Vector2Int newPos)
+    {
+
+        switch (entity.dirSpawned)
+        {
+            default: newPos = Vector2Int.zero; Debug.Log("Zero Executed");  break;
+
+            case DirSpawned.NORTH:
+                newPos += Vector2Int.down; break;
+
+            case DirSpawned.SOUTH:
+                newPos += Vector2Int.up; break;
+
+            case DirSpawned.EAST:
+                newPos += Vector2Int.left; break;
+
+            case DirSpawned.WEST:
+                newPos += Vector2Int.right; break;
+
+        }
+
+        Tile[,] gridArray = Grid.instance.gridArray;
+
+        if (gridArray[newPos.x, newPos.y].entity == null)
+        {
+            entity.GetComponent<Animator>().SetBool("Eat", false);
+            gridArray[newPos.x, newPos.y].entity = entity;
+            Debug.Log(newPos.x);
+            Debug.Log(newPos.y);
+            Debug.Log(oldPos.x);
+            Debug.Log(oldPos.y);
+            gridArray[oldPos.x, oldPos.y].entity = null;
+            entity.position = newPos;
+            entity.transform.position = gridArray[newPos.x, newPos.y].transform.position;
+        }
+
+        if (gridArray[newPos.x, newPos.y].entity.type.Equals(EntityType.Plant))
+        {
+            entity.GetComponent<Animator>().SetBool("Eat", true);
+            gridArray[newPos.x, newPos.y].entity.TakeDamage(1);
+
+            if (gridArray[newPos.x, newPos.y].entity.health <= 0)
+            {
+                entity.GetComponent<Animator>().SetBool("Eat", false);
+                DestroyEntity(gridArray[newPos.x, newPos.y].entity);
+
+                gridArray[newPos.x, newPos.y].entity = null;
+            }
+        }
     }
 
     //This is a Temp AI Function
@@ -131,14 +241,14 @@ public class GameManager : MonoBehaviour
     {
         Tile[,] gridArray = Grid.instance.gridArray;
 
-        if (newPos.x < 0)
-        {
-            //YOU LOSE
-            entity.transform.position = houseSpot.position;
-            StopAllCoroutines();
-            Application.Quit();
-            return;
-        }
+        //if (newPos.x < 0)
+        //{
+        //    //YOU LOSE
+        //    entity.transform.position = houseSpot.position;
+        //    StopAllCoroutines();
+        //    Application.Quit();
+        //    return;
+        //}
 
         if (gridArray[newPos.x, newPos.y].entity == null)
         {
@@ -190,7 +300,7 @@ public class GameManager : MonoBehaviour
     public void ShowTarget(int x, int y)
     {
         if(selectedPlant != null)
-            Grid.instance.ShowTarget(x, y);
+            Grid.instance.ShowTarget(x, y, selectedPlant.EntityPrefab);
     }
 
     public void UnShowTarget()

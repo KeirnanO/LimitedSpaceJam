@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3363374963849075835}
   - component: {fileID: 3520994982634805680}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: output-onlinepngtools (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6605998114782243346}
   - component: {fileID: 1821372346374317349}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,8 @@ GameObject:
   - component: {fileID: 8345255298767701996}
   - component: {fileID: 6805901238273151099}
   - component: {fileID: 753120809159330031}
-  m_Layer: 0
+  - component: {fileID: -8292764979849553610}
+  m_Layer: 5
   m_Name: Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8345255298767701986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.84, z: 0}
+  m_LocalPosition: {x: 10.5, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1.5027555, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -531,8 +532,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectID: {fileID: 11400000, guid: 13cb80570d20ace43b1c035b7b58a3f7, type: 2}
   health: 1
+  UnitName: Flower
   position: {x: 0, y: 0}
   type: 1
+  dirSpawned: 4
   power: 10
   turnDelay: 3
   turnText: {fileID: 8810518813626755918}
@@ -557,3 +560,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-8292764979849553610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345255298767701986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807b8e995e0054e47851e24982c8c4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: {fileID: 0}
+  health: 0
+  UnitName: NULL
+  position: {x: 0, y: 0}
+  type: 0
+  dirSpawned: 4

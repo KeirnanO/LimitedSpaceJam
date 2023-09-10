@@ -6,6 +6,16 @@ public class Bullet : MonoBehaviour
 {
     public int damage = 1;
 
+    public enum FIREDIRECTION
+    {
+        NORTH,
+        SOUTH,  
+        EAST,
+        WEST
+    }
+
+    public FIREDIRECTION fireDirection = FIREDIRECTION.NORTH;
+
     private void Start()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * 5f;

@@ -16,9 +16,6 @@ public class RTSCam : MonoBehaviour
     [SerializeField] private Vector2 p1;
     [SerializeField] private Vector2 p2;
 
-    [SerializeField] private Transform scoutPos;
-    [SerializeField] private int scoutCounter;
-
     [SerializeField] private float hsp;
     [SerializeField] private float vsp;
     [SerializeField] private float scrollSp;
@@ -40,9 +37,8 @@ public class RTSCam : MonoBehaviour
 
     public void Update()
     {
-
-        hsp = transform.position.y * speed * Input.GetAxis("Horizontal");
-        vsp = transform.position.y * speed * Input.GetAxis("Vertical");
+        hsp = transform.position.y * speed * (Input.GetAxis("Horizontal") / 10);
+        vsp = transform.position.y * speed * (Input.GetAxis("Vertical") /10);
         scrollSp = transform.position.z * (Input.GetAxis("Mouse ScrollWheel") / 10);
 
         {        

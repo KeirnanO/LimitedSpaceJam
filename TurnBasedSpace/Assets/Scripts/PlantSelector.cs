@@ -11,6 +11,7 @@ public class PlantSelector : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI costText;
+    public string unitName;
 
 
     private void Start()
@@ -23,5 +24,6 @@ public class PlantSelector : MonoBehaviour
     private void OnMouseDown()
     {
         GameManager.instance.SelectPlant(plantObject);
+        Grid.instance.previewName = unitName;
     }
 }

@@ -10,6 +10,16 @@ public enum EntityType
     Obstacle = 3
 }
 
+public enum DirSpawned
+{
+    NORTH = 0,
+    SOUTH = 1,
+    EAST = 2,
+    WEST = 3,
+    NONE = 4
+
+}
+
 
 public class Entity : MonoBehaviour
 {
@@ -18,9 +28,11 @@ public class Entity : MonoBehaviour
 
     //fix
     public float health;
+    public string UnitName = "NULL";
 
     public Vector2Int position;
     public EntityType type;
+    public DirSpawned dirSpawned = DirSpawned.NONE;
 
     public void TakeDamage(int damage)
     {
@@ -37,7 +49,14 @@ public class Entity : MonoBehaviour
         }
     }
 
+    public void SetDir(DirSpawned ds) { dirSpawned = ds; }
+
     public virtual void OnRoundStart()
+    {
+
+    }
+
+    public void PathToOrigin()
     {
 
     }
