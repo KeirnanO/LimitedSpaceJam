@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FIREDIRECTION
+{
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST
+}
+
 public class Bullet : MonoBehaviour
 {
     public int damage = 1;
 
-    public enum FIREDIRECTION
-    {
-        NORTH,
-        SOUTH,  
-        EAST,
-        WEST
-    }
+
 
     public FIREDIRECTION fireDirection = FIREDIRECTION.NORTH;
 
     private void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * 5f;
+        GetComponent<Rigidbody2D>().velocity = transform.right * 5f;
 
         Destroy(gameObject, 5f);
     }
@@ -33,7 +35,7 @@ public class Bullet : MonoBehaviour
             GetComponent<Animator>().SetBool("Hit", true);
             GetComponent<BoxCollider2D>().enabled = false;
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0.5f, 1.5f), Random.Range(-0.2f, 0.2f));
+            GetComponent<Rigidbody2D>().velocity *= .2f;
         }
     }
 

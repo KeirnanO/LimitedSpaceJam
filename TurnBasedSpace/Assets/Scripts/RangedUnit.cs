@@ -16,7 +16,7 @@ public class RangedUnit : Entity
 
     public void Fire()
     {
-        var newBullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+        var newBullet = Instantiate(bullet,bulletSpawnPoint);
         newBullet.damage = damage;
     }
 }

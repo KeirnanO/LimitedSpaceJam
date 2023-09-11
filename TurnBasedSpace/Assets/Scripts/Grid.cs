@@ -131,7 +131,6 @@ public class Grid : MonoBehaviour
     public void RotateTarget()
     {
         tempGo.transform.Rotate(0, 0, 90);
-        Debug.Log("Rotated Unit!");
     }
 
     public void UnshowTarget()
