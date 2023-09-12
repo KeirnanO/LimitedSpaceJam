@@ -13,6 +13,12 @@ public class Grid : MonoBehaviour
 
     public GameObject unit1Preview;
     public GameObject unit2Preview;
+    public GameObject unit3Preview;
+    public GameObject unit4Preview;
+    public GameObject unit5Preview;
+    public GameObject unit6Preview;
+    public GameObject unit7Preview;
+    public GameObject unit8Preview;
 
     GameObject tempGo;
     public bool unitPreview = false;
@@ -119,6 +125,25 @@ public class Grid : MonoBehaviour
 
             case "Flower":
                 tempGo = unit2Preview;
+                break;
+
+            case "Farmer":
+                tempGo = unit3Preview;
+                break;
+            case "Catapult":
+                tempGo = unit4Preview;
+                break;
+            case "Mage":
+                tempGo = unit5Preview;
+                break;
+            case "Knight":
+                tempGo = unit6Preview;
+                break;
+            case "Wrestler":
+                tempGo = unit7Preview;
+                break;
+            case "Wolf":
+                tempGo = unit7Preview;
                 break;
         }
 
