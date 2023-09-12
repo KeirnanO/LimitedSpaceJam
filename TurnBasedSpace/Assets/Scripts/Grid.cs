@@ -57,7 +57,6 @@ public class Grid : MonoBehaviour
                 obj.gridPos = new Vector2Int(i, j);
             }
         }
-       //origin = new Vector2((rowPositions \ 2), origin.y );
     }
 
     public Entity SpawnEntity(Tile tile, Entity entityPrefab)
