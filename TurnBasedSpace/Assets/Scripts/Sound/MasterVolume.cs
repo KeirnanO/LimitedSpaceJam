@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class MasterVolume : MonoBehaviour {
 
-   // [SerializeField] Slider soundSlider;
+    public static MasterVolume Instance;
+
+    [SerializeField] Slider soundSlider;
     [SerializeField] AudioMixer masterMixer;
 
 
-    private void Start() 
-    
+    private void Start()    
     {
         SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
     }
@@ -26,10 +27,8 @@ public class MasterVolume : MonoBehaviour {
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(_value / 100) * 20f);
     }
 
-
-
     public void SetVolumeFromSlider() {
-     //   SetVolume(soundSlider.value);
+        SetVolume(soundSlider.value);
     }
 
     public void RefreshSlider(float _value) {

@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] Slider soundSlider;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void Options()
-    {
-        SceneManager.LoadScene(2);
-    }
-
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetVolume()
+    {
+        MasterVolume.Instance.SetVolume(soundSlider.value);
     }
 }
 
