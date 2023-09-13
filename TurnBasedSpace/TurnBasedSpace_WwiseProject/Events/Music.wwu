@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1F93B5A1-85BD-48F0-8F9C-CC89E8A8A338}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Music" ID="{1F93B5A1-85BD-48F0-8F9C-CC89E8A8A338}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Menu_Music" ID="{6607E7A5-C9F9-4008-A9E5-B210A73A1593}">
+					<ChildrenList>
+						<Action Name="" ID="{CA6F1B5D-E705-4DEC-B4BB-9FF24B1EEE21}" ShortID="946974396">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_Music" ID="{29E50C2B-BAE1-49B6-A335-D639DB4BF00D}" WorkUnitID="{0A04685B-D8B7-4645-9985-F84210CC8BF5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Level_Music" ID="{3FA6F033-7067-4367-9535-A61622E9C8BA}">
+					<ChildrenList>
+						<Action Name="" ID="{01428A6F-EECE-4EDB-85AB-94128D3E5210}" ShortID="895714356">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Level_Music" ID="{9E81D593-7B1B-47C1-8CC7-D5E68445916B}" WorkUnitID="{0A04685B-D8B7-4645-9985-F84210CC8BF5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

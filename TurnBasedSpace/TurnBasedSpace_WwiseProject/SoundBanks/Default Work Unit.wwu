@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DF3B3409-2D80-4B72-B964-4641C9928A98}" SchemaVersion="110">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{DF3B3409-2D80-4B72-B964-4641C9928A98}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Music" ID="{68B796BA-DC1A-416D-8167-1F8AF16DB9F8}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Menu_Music" ID="{6607E7A5-C9F9-4008-A9E5-B210A73A1593}" WorkUnitID="{1F93B5A1-85BD-48F0-8F9C-CC89E8A8A338}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Level_Music" ID="{3FA6F033-7067-4367-9535-A61622E9C8BA}" WorkUnitID="{1F93B5A1-85BD-48F0-8F9C-CC89E8A8A338}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Main" ID="{B5E94898-D0BF-4069-BA2A-B9560AE1A7C1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Wind_HF" ID="{7CEF4DF7-FDBB-43CB-B819-602B81DA5C0C}" WorkUnitID="{AC21BB60-2713-40A9-B491-7C0202032D27}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

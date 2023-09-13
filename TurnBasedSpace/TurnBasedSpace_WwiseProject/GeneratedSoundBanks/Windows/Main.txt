@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	83691352	Wind_HF			\Default Work Unit\Main\Ambience\Wind_HF	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	782544457	Wind_HF	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\PP_AMB_WIND_HF_5A468F02.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Wind_HF		654071
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AC21BB60-2713-40A9-B491-7C0202032D27}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{AC21BB60-2713-40A9-B491-7C0202032D27}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Main" ID="{1DBFCA58-9259-4D4E-930A-2DE9E32DF670}" ShortID="552053859">
+					<ChildrenList>
+						<Folder Name="Ambience" ID="{7989B900-7B83-4CD9-8895-1D7FB94AE00D}" ShortID="871843646">
+							<ChildrenList>
+								<Event Name="Wind_HF" ID="{7CEF4DF7-FDBB-43CB-B819-602B81DA5C0C}">
+									<ChildrenList>
+										<Action Name="" ID="{DF872066-9269-45C8-A06C-349A760E1DBF}" ShortID="94455117">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wind_HF" ID="{5D7DDC19-4533-471F-9733-A0C5A0B9A133}" WorkUnitID="{42C1CC6E-59A2-43BD-AE19-BC9D318D0484}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

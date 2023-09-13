@@ -1,0 +1,25 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1244594577	Level_Music			\Music\Level_Music	
+	4055567060	Menu_Music			\Music\Menu_Music	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	111695670	Section10	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section10_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section10\Section10		434874
+	121268761	Layer11_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Layer11_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Layer11_Intro\Layer11_Intro		258402
+	189847087	Section7	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section7_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section7\Section7		322250
+	199600275	Layer10_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Layer10_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Layer10_Intro\Layer10_Intro		258818
+	203749553	Section4	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section4_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section4\Section4		301404
+	242339881	Section1	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section1_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section1\Section1		295196
+	299315174	Menu_Loop	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Menu_Loop_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu_Music\Menu_Loop\Menu_Loop		1574290
+	335535769	Section5	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section5_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section5\Section5		320044
+	446773084	Layer9_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Layer9_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Layer9_Intro\Layer9_Intro		47837
+	559046914	Layer7_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Layer7_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Layer7_Intro\Layer7_Intro		15886
+	595114791	Section0	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section0_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section0\Section0		297026
+	670769648	Layer8_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Layer8_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Layer8_Intro\Layer8_Intro		12521
+	713102942	Section9	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section9_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section9\Section9		399000
+	743680668	Section8	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section8_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section8\Section8		331315
+	812972971	Section11	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section11_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section11\Section11		439104
+	875499256	Section3	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section3_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section3\Section3		290098
+	1025571626	Section2	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section2_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section2\Section2		287232
+	1051494099	Menu_Intro	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Menu_Intro_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu_Music\Menu_Intro\Menu_Intro		92681
+	1059077885	Section6	C:\Users\Joshua\Documents\GitHub\LimitedSpaceJam\TurnBasedSpace\TurnBasedSpace_WwiseProject\.cache\Windows\SFX\Section6_FD7EB04F.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Level_Music\Section6\Section6		326448
+

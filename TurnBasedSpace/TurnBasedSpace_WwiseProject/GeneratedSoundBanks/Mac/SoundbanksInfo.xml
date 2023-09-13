@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F56A610C-C7C4-F874-B68B-7ADDF94EBB7A}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{97876BBC-D211-E794-DAB8-76AB61639637}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="782544457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PP_AMB_WIND_HF.wav</ShortName>
+					<CachePath>SFX/PP_AMB_WIND_HF_5A468F02.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="83691352" Name="Wind_HF" DurationType="OneShot" DurationMin="63.594288" DurationMax="63.594288">
+					<MediaRefs>
+						<MediaRef Id="782544457"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{56068ADF-3FEE-3C9C-F5E3-7108EA6AC76C}">
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<Media>
+				<File Id="111695670" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section10.wav</ShortName>
+					<CachePath>SFX/Section10_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="121268761" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Layer11_Intro.wav</ShortName>
+					<CachePath>SFX/Layer11_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="189847087" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section7.wav</ShortName>
+					<CachePath>SFX/Section7_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="199600275" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Layer10_Intro.wav</ShortName>
+					<CachePath>SFX/Layer10_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="203749553" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section4.wav</ShortName>
+					<CachePath>SFX/Section4_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="242339881" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section1.wav</ShortName>
+					<CachePath>SFX/Section1_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="299315174" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu_Loop.wav</ShortName>
+					<CachePath>SFX/Menu_Loop_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="335535769" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section5.wav</ShortName>
+					<CachePath>SFX/Section5_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="446773084" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Layer9_Intro.wav</ShortName>
+					<CachePath>SFX/Layer9_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="559046914" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Layer7_Intro.wav</ShortName>
+					<CachePath>SFX/Layer7_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="595114791" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section0.wav</ShortName>
+					<CachePath>SFX/Section0_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="670769648" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Layer8_Intro.wav</ShortName>
+					<CachePath>SFX/Layer8_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="713102942" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section9.wav</ShortName>
+					<CachePath>SFX/Section9_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="743680668" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section8.wav</ShortName>
+					<CachePath>SFX/Section8_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="812972971" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section11.wav</ShortName>
+					<CachePath>SFX/Section11_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="875499256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section3.wav</ShortName>
+					<CachePath>SFX/Section3_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="1025571626" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section2.wav</ShortName>
+					<CachePath>SFX/Section2_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="1051494099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu_Intro.wav</ShortName>
+					<CachePath>SFX/Menu_Intro_FD7EB04F.wem</CachePath>
+				</File>
+				<File Id="1059077885" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section6.wav</ShortName>
+					<CachePath>SFX/Section6_FD7EB04F.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1244594577" Name="Level_Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="111695670"/>
+						<MediaRef Id="121268761"/>
+						<MediaRef Id="189847087"/>
+						<MediaRef Id="199600275"/>
+						<MediaRef Id="203749553"/>
+						<MediaRef Id="242339881"/>
+						<MediaRef Id="335535769"/>
+						<MediaRef Id="446773084"/>
+						<MediaRef Id="559046914"/>
+						<MediaRef Id="595114791"/>
+						<MediaRef Id="670769648"/>
+						<MediaRef Id="713102942"/>
+						<MediaRef Id="743680668"/>
+						<MediaRef Id="812972971"/>
+						<MediaRef Id="875499256"/>
+						<MediaRef Id="1025571626"/>
+						<MediaRef Id="1059077885"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4055567060" Name="Menu_Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="299315174"/>
+						<MediaRef Id="1051494099"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{B3453807-9354-A7EA-7644-FD88AC4B65E3}</FileHash>
+</SoundBanksInfo>
