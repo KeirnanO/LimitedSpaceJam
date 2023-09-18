@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   cost: 0
-  Name: 
+  Name: Mage
   icon: {fileID: 21300000, guid: 02f29e16d1ba9fa43a80ddd06999d84e, type: 3}
-  EntityPrefab: {fileID: 0}
+  EntityPrefab: {fileID: 2681774071441063393, guid: 6886450119f761c48bd469d1fb14e48f, type: 3}
+  upgradedUnit: {fileID: 0}

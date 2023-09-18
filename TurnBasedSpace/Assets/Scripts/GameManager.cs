@@ -71,6 +71,107 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator TrySwapTiles(Tile tile1, Tile tile2)
+    {
+        //Cancel all Inputs 
+
+        //Swap Tiles
+        Transform entity1 = null;
+        Transform entity2 = null;
+        
+        if(tile1.entity != null)
+            entity1 = tile1.entity.transform;
+        if (tile2.entity != null)
+            entity2 = tile2.entity.transform;
+
+        float distance = 0;
+        while (distance < 1)
+        {
+            if (entity1 == null && entity2 == null)
+            {
+                distance = 1;
+                break;
+            }
+            
+            if(entity1 != null)
+                entity1.position = Vector3.Lerp(tile1.transform.position, tile2.transform.position, distance);
+            if(entity2 != null)
+                entity2.position = Vector3.Lerp(tile2.transform.position, tile1.transform.position, distance);
+
+            distance += Time.deltaTime * 5;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        GridMerge.SwapTiles(tile1.gridPos.x, tile1.gridPos.y, Grid.instance.gridArray);
+
+        List<Tile> chain1;
+        List<Tile> chain2;
+        
+
+        if(GridMerge.TrySwapTile(tile1.gridPos.x, tile1.gridPos.y, out chain1, out chain2))
+        {
+            if(chain1 != null)
+                if(chain1.Count > 2)
+                    yield return MergeTiles(chain1);
+            if(chain2 != null)
+                if (chain2.Count > 2)
+                    yield return MergeTiles(chain2);
+        }
+        else
+        {
+            distance = 0;
+
+            while (distance < 1)
+            {
+                if (entity1 == null && entity2 == null)
+                {
+                    distance = 1;
+                    break;
+                }
+
+                if (entity1 != null)
+                    entity1.position = Vector3.Lerp(tile2.transform.position, tile1.transform.position, distance);
+                if (entity2 != null)
+                    entity2.position = Vector3.Lerp(tile1.transform.position, tile2.transform.position, distance);
+
+                distance += Time.deltaTime * 10;
+                yield return null;
+            }
+
+            GridMerge.SwapTiles(tile1.gridPos.x, tile1.gridPos.y, Grid.instance.gridArray);
+        }
+    }
+
+    IEnumerator MergeTiles(List<Tile> chain)
+    {
+        float distance = 0;
+
+        while (distance < 1)
+        {
+            for(int i = 1; i < chain.Count; i++)
+            {
+                chain[i].entity.transform.position = Vector3.Lerp(chain[i].transform.position, chain[0].transform.position, distance);
+            }
+
+            distance += Time.deltaTime * 8;
+            yield return null;
+        }
+
+        PlaceableScriptableObject mergedUnit = ObjectDatabase.instance.GetObjectID(chain[0].entity.objectID.upgradedUnit);
+
+        for (int i = 0; i < chain.Count; i++)
+        {
+            DestroyEntity(chain[i].entity);
+        }
+
+        if (chain[0].entity != null)
+            chain[0].entity = null;
+
+        Grid.instance.SpawnEntity(chain[0], mergedUnit.EntityPrefab);
+    }
+
     public void Update()
     {
         if (Input.GetKeyUp(KeyCode.R))
@@ -128,10 +229,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //SpawnEnemy();
+        SpawnEnemy();
 
        // FourDirSpawn(Random.Range(0, 4));
-        FourDirSpawn(Random.Range(0, 4));
+        //FourDirSpawn(Random.Range(0, 4));
     }
 
     public void SpawnEnemy()
@@ -281,7 +382,7 @@ public class GameManager : MonoBehaviour
 
         if (selectedPlant == null)
         {
-            TrySwap(tile);
+            TrySwap(tile, Grid.instance.gridArray[tile.gridPos.x + 1, tile.gridPos.y]);
             return;
         }
 
@@ -344,8 +445,8 @@ public class GameManager : MonoBehaviour
         Destroy(entity.gameObject);
     }
 
-    public void TrySwap(Tile tile)
+    public void TrySwap(Tile tile1, Tile tile2)
     {
-        GridMerge.TrySwapTile(tile.gridPos.x, tile.gridPos.y);
+        StartCoroutine(TrySwapTiles(tile1, tile2));
     }
 }

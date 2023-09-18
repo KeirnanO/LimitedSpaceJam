@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &1131393151750460836
 MonoBehaviour:
@@ -469,7 +469,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d1b954874b4309d4e97f9c21ebc5fd2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd20a406330c5141b64ab35fa1e0072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: {fileID: 11400000, guid: 13cb80570d20ace43b1c035b7b58a3f7, type: 2}
+  objectID: {fileID: 11400000, guid: 8783028c2af289e49b08b8f545c2785e, type: 2}
   health: 1
   UnitName: Farmer
   position: {x: 0, y: 0}

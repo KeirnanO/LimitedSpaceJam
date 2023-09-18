@@ -18,7 +18,7 @@ public class PlantSelector : MonoBehaviour
     {
         icon.sprite = plantObject.icon;
         nameText.SetText(plantObject.Name);
-        costText.SetText(plantObject.cost + " Energy");
+        costText.SetText(plantObject.cost.ToString());
     }
 
     private void OnMouseDown()

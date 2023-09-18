@@ -20,13 +20,11 @@ public class Grid : MonoBehaviour
     public GameObject unit7Preview;
     public GameObject unit8Preview;
 
-    GameObject tempGo;
+    GameObject tempGo = null;
+
     public bool unitPreview = false;
 
     public string previewName = "NULL";
-
-    public List<float> rowPositions;
-    public List<float> columnPositions;
 
     public Tile[,] gridArray;
     public Vector3 gridScale;
@@ -38,7 +36,6 @@ public class Grid : MonoBehaviour
     private void Start()
     {
         instance = this;
-        tempGo = new GameObject();
         UnshowTarget();
         GenerateGrid();
     }
@@ -53,7 +50,7 @@ public class Grid : MonoBehaviour
             {
                 var obj = Instantiate(gridPrefab, transform);
 
-                Vector2 position = new Vector2( columnPositions[i] * gridScale.x, rowPositions[j] * gridScale.y);
+                Vector2 position = new Vector2(i * gridScale.x, j * gridScale.y);
 
                 gridArray[i, j] = obj;
                 obj.transform.localScale = gridScale;
@@ -91,14 +88,15 @@ public class Grid : MonoBehaviour
         columnImage.SetActive(true);
 
         Vector3 rowPosition = rowImage.transform.position;
-        rowPosition.y = rowPositions[row] * gridScale.x;
+        rowPosition.y = row * gridScale.x;
 
         Vector3 columnPosition = columnImage.transform.position;
-        columnPosition.x = columnPositions[column] * gridScale.y;
+        columnPosition.x = column * gridScale.y;
 
         rowImage.transform.position = rowPosition;
         columnImage.transform.position = columnPosition;
     }
+
     public void ShowTarget(int column, int row, Entity prefabPreview)
     {
         unitPreview = true;
@@ -107,10 +105,10 @@ public class Grid : MonoBehaviour
         columnImage.SetActive(true);
 
         Vector3 rowPosition = rowImage.transform.position;
-        rowPosition.y = rowPositions[row] * gridScale.x;
+        rowPosition.y = row * gridScale.x;
 
         Vector3 columnPosition = columnImage.transform.position;
-        columnPosition.x = columnPositions[column] * gridScale.y;
+        columnPosition.x = column * gridScale.y;
 
         rowImage.transform.position = rowPosition;
         columnImage.transform.position = columnPosition;
@@ -154,14 +152,17 @@ public class Grid : MonoBehaviour
 
     public void RotateTarget()
     {
-        tempGo.transform.Rotate(0, 0, 90);
+        //tempGo.transform.Rotate(0, 0, 90);
     }
 
     public void UnshowTarget()
     {
         rowImage.SetActive(false);
         columnImage.SetActive(false);
-        tempGo.SetActive(false);
+
+        if (tempGo)
+            tempGo.SetActive(false);
+
         unitPreview = false; 
     }
 }

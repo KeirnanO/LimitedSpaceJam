@@ -10,4 +10,5 @@ public class PlaceableScriptableObject : ScriptableObject
     public Sprite icon;
 
     public Entity EntityPrefab;
+    public PlaceableScriptableObject upgradedUnit;
 }

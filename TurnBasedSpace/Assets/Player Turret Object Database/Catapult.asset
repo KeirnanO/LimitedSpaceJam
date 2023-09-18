@@ -15,4 +15,5 @@ MonoBehaviour:
   cost: 50
   Name: Catapult
   icon: {fileID: 21300000, guid: 0027efafb6fa63747941712bb3e14fec, type: 3}
-  EntityPrefab: {fileID: 0}
+  EntityPrefab: {fileID: 3237264902630131599, guid: 63c3d0dacf9f84d45bb4ec9735fda63a, type: 3}
+  upgradedUnit: {fileID: 11400000, guid: 52ff7df557437e240bb44701f8b9c1bd, type: 2}

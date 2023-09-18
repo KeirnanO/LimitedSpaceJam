@@ -5,8 +5,11 @@ using UnityEngine;
 public static class GridMerge
 {
 
-    public static bool TrySwapTile(int x, int y)
+    public static bool TrySwapTile(int x, int y, out List<Tile> chain1, out List<Tile> chain2)
     {
+        chain1 = null;
+        chain2 = null;
+
         if (x > Grid.instance.columns - 1)
             return false;
 
@@ -15,15 +18,14 @@ public static class GridMerge
         int x2 = x + 1;
 
         //Check if tile1 swap makes combo
-        List<Tile> newChain = null;
-        List<Tile> newChain2 = null;
+        
 
 
         if (gridArray[x, y].entity != null)
         {
             PlaceableScriptableObject objectID = gridArray[x, y].entity.objectID;
 
-            newChain = GetChain(x, y, gridArray, objectID);
+            chain1 = GetChain(x, y, gridArray, objectID);
         }
 
 
@@ -32,20 +34,21 @@ public static class GridMerge
         {
             PlaceableScriptableObject objectID2 = gridArray[x2, y].entity.objectID;
 
-            newChain2 = GetChain(x2, y, gridArray, objectID2);        
+            chain2 = GetChain(x2, y, gridArray, objectID2);        
         }
 
-        //Return out if no chains
-        if (newChain == null && newChain2 == null)
-            return false;
+        if (chain1 != null)
+            if (chain1.Count > 2) return true;
 
-        //If there are chains swap the tiles
-        SwapTiles(x, y, gridArray);
-        return true;
+        if(chain2 != null)
+            if (chain2.Count > 2) return true;
+
+        ///No Chains
+        return false;
     }
 
     //Ugly but works
-    static void SwapTiles(int x, int y, Tile[,] grid)
+    public static void SwapTiles(int x, int y, Tile[,] grid)
     {
         Entity tempEntity = grid[x, y].entity;
         int x2 = x + 1;
@@ -80,7 +83,7 @@ public static class GridMerge
         if (y > 0)
         {
             //Add keep adding tiles to the chain until there isnt a match
-            for (int y2 = y - 1; y >= 0; y--)
+            for (int y2 = y - 1; y2 >= 0; y2--)
             {
                 if (grid[x, y2].entity == null)
                     break;
@@ -101,7 +104,7 @@ public static class GridMerge
         if (y < Grid.instance.rows - 1)
         {
             //Add keep adding tiles to the chain until there isnt a match
-            for (int y2 = y + 1; y < Grid.instance.rows; y++)
+            for (int y2 = y + 1; y2 < Grid.instance.rows; y2++)
             {
                 if (grid[x, y2].entity == null)
                     break;
@@ -124,5 +127,7 @@ public static class GridMerge
 
         return chain;
     }
+
+    
 
 }

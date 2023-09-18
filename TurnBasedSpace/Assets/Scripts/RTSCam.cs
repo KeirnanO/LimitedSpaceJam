@@ -10,8 +10,8 @@ public class RTSCam : MonoBehaviour
     [SerializeField] private float zoomSpeed = 10.0f;
     [SerializeField] private float rotSpeed;
 
-    [SerializeField] private float maxHeight = 40f;
-    [SerializeField] private float minHeight = 4f;
+    [SerializeField] private float maxSize = 15f;
+    [SerializeField] private float minSize = 3f;
 
     [SerializeField] private Vector2 p1;
     [SerializeField] private Vector2 p2;
@@ -19,6 +19,8 @@ public class RTSCam : MonoBehaviour
     [SerializeField] private float hsp;
     [SerializeField] private float vsp;
     [SerializeField] private float scrollSp;
+    [SerializeField] private float projectionSize;
+    [SerializeField] private Vector3 projectionPosition;
 
     void Awake()
     {
@@ -32,36 +34,29 @@ public class RTSCam : MonoBehaviour
     void Start()
     {
         scrollSp = -10;
-            //Mathf.Log(transform.position.z) * -zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
+        //Mathf.Log(transform.position.z) * -zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
+
+        projectionSize = Camera.main.orthographicSize;
+        projectionPosition = transform.position;
     }
 
     public void Update()
     {
-        hsp = transform.position.y * speed * (Input.GetAxis("Horizontal") / 10);
-        vsp = transform.position.y * speed * (Input.GetAxis("Vertical") /10);
-        scrollSp = transform.position.z * (Input.GetAxis("Mouse ScrollWheel") / 10);
+        hsp = Input.GetAxis("Horizontal");
+        vsp = Input.GetAxis("Vertical");
+        scrollSp = (Input.GetAxis("Mouse ScrollWheel") * 3);
 
-        {        
+        projectionSize = Mathf.Clamp(projectionSize -= scrollSp, minSize, maxSize);
 
-            if (transform.position.z <= maxHeight)
-            {
-                scrollSp = maxHeight - transform.position.z;
-            }
-            else if (transform.position.z > minHeight)
-            {
-                scrollSp = minHeight - transform.position.z;
-            }
-        }
+        Vector3 direction = new Vector3(hsp, vsp, 0f);
+        if(direction.magnitude > direction.normalized.magnitude)
+            direction.Normalize();
 
-        Vector3 verticalMove = new Vector3(0, vsp, 0); // y move
-        Vector3 lateralMove = hsp * transform.right; // left right move
-        Vector3 forwardMove = transform.forward; // "forward" move (negate cam moving forward dir face
-        forwardMove.y = 0;
-        forwardMove.Normalize();
-        forwardMove *= scrollSp;
+        projectionPosition += direction * (speed * (projectionSize / 4f) * Time.deltaTime);
 
-        Vector3 move = verticalMove + lateralMove + forwardMove;
-
-        transform.position += move;
+        if((transform.position - projectionPosition).magnitude > 0.3f)
+            transform.position = Vector3.Lerp(transform.position, projectionPosition, 10f * Time.deltaTime);
+        if(Mathf.Abs(Camera.main.orthographicSize - projectionSize) > 0.2f)
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, projectionSize, 100f * Time.deltaTime);
     }
 }

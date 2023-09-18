@@ -10,6 +10,16 @@ public class Tile : MonoBehaviour
 
     public bool rotted;
 
+    public Sprite[] grassSprites;
+    public Sprite[] rottedSprites;
+
+    private void Start()
+    {
+        int rand = Random.Range(0, grassSprites.Length);
+
+        GetComponent<SpriteRenderer>().sprite = grassSprites[rand];
+    }
+
     private void OnMouseDown()
     {
         print("Clicked: " + gridPos.x + " , " + gridPos.y);

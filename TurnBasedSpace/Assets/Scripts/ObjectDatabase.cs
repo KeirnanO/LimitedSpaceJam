@@ -12,4 +12,15 @@ public class ObjectDatabase : MonoBehaviour
     {
         instance = this;
     }
+
+    public PlaceableScriptableObject GetObjectID(PlaceableScriptableObject so)
+    {
+        for(int i = 0; i < playerObjectDatabase.Count; i++)
+        {
+            if (playerObjectDatabase[i] == so)
+                return playerObjectDatabase[i];
+        }
+
+        return null;
+    }
 }
