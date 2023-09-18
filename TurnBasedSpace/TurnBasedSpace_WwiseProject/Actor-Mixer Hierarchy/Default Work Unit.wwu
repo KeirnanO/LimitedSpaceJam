@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{42C1CC6E-59A2-43BD-AE19-BC9D318D0484}" SchemaVersion="110">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{42C1CC6E-59A2-43BD-AE19-BC9D318D0484}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Main" ID="{1C5808D3-9A09-4E6F-BED5-B334663B62A5}" ShortID="969158615">
+					<ChildrenList>
+						<ActorMixer Name="Heroes" ID="{E65ABF38-CE61-4293-BB81-ED5C806304B6}" ShortID="62214038">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{87A7F4F9-599F-4FD5-B902-5FC1BEBCB3D3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B3DE9377-621F-49DD-89A3-E605F3FBE260}"/>
+								</Reference>
+							</ReferenceList>
+						</ActorMixer>
+						<ActorMixer Name="Villains" ID="{0AFBF565-6EBE-4F39-BF5A-3E6856562E1C}" ShortID="195631253">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{87A7F4F9-599F-4FD5-B902-5FC1BEBCB3D3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B3DE9377-621F-49DD-89A3-E605F3FBE260}"/>
+								</Reference>
+							</ReferenceList>
+						</ActorMixer>
+						<ActorMixer Name="Ambience" ID="{D72D77FA-599E-4D2D-B73A-D0A03BB88F7A}" ShortID="378623568">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{87A7F4F9-599F-4FD5-B902-5FC1BEBCB3D3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B3DE9377-621F-49DD-89A3-E605F3FBE260}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Wind_HF" ID="{5D7DDC19-4533-471F-9733-A0C5A0B9A133}" ShortID="1072921264">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{87A7F4F9-599F-4FD5-B902-5FC1BEBCB3D3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B3DE9377-621F-49DD-89A3-E605F3FBE260}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PP_AMB_WIND_HF" ID="{4B73B112-8750-461D-9B09-CD340C526B35}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="63.59428826816"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PP_AMB_WIND_HF.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="782544457"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PP_AMB_WIND_HF" ID="{4B73B112-8750-461D-9B09-CD340C526B35}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</ActorMixer>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
